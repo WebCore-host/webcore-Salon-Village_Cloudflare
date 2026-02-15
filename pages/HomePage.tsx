@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
       {/* Hero Section */}
       <section className="relative h-[90vh] flex items-center overflow-hidden shadow-gold-hero-inner m-4 md:m-8 rounded-[10px] border border-gold/10">
         <div 
-          className="absolute inset-0 bg-cover bg-[75%_center] md:bg-center z-0 transition-transform duration-[10s] hover:scale-105" 
+          className="absolute inset-0 bg-cover bg-[75%_65%] md:bg-center z-0 transition-transform duration-[10s] hover:scale-105" 
           style={{ backgroundImage: `url('Salon_Village_Outside_Cover.png')` }}
         >
           {/* Depth overlays */}
