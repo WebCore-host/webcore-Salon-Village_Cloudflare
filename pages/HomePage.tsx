@@ -31,14 +31,18 @@ const HomePage: React.FC = () => {
     <div className="pt-20 bg-luxury-black min-h-screen bg-geometric-gold">
       {/* Hero Section */}
       <section className="relative h-[90vh] flex items-center overflow-hidden shadow-gold-hero-inner m-4 md:m-8 rounded-[10px] border border-gold/10">
+        {/* Background Image Layer with Mobile-Specific Blur */}
         <div 
-          className="absolute inset-0 bg-cover bg-[75%_65%] md:bg-center z-0 transition-transform duration-[10s] hover:scale-105" 
+          className="absolute inset-0 bg-cover bg-[75%_65%] md:bg-center z-0 transition-all duration-[10s] hover:scale-105 blur-[2px] md:blur-0 scale-105 md:scale-100" 
           style={{ backgroundImage: `url('Salon_Village_Outside_Cover.png')` }}
-        >
-          {/* Depth overlays */}
+        ></div>
+        
+        {/* Depth overlays with Mobile-Specific 60% Opacity Overlay */}
+        <div className="absolute inset-0 z-[1] pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent"></div>
-          <div className="absolute inset-0 bg-black/30"></div>
+          {/* Mobile: 60% opacity overlay | Desktop: 30% opacity overlay */}
+          <div className="absolute inset-0 bg-black/60 md:bg-black/30"></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 w-full">
