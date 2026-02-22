@@ -68,8 +68,8 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
     }, 1200);
   };
 
-  const labelClass = "text-[12px] text-[#FFD700] uppercase font-bold tracking-widest ml-1 mb-2 block";
-  const inputClass = "w-full bg-[#1E1E1E] border border-[#FFD700] rounded-lg px-5 py-4 text-[#F5F5F5] placeholder-[#B0B0B0] text-base focus:border-[#FFD700] focus:shadow-[0_0_10px_rgba(255,215,0,0.5)] hover:shadow-[0_0_8px_rgba(255,215,0,0.3)] outline-none transition-premium font-medium";
+  const labelClass = "text-[12px] text-[#E4A422] uppercase font-bold tracking-widest ml-1 mb-2 block";
+  const inputClass = "w-full bg-[#1E1E1E] border border-[#E4A422] rounded-lg px-5 py-4 text-[#F5F5F5] placeholder-[#B0B0B0] text-base focus:border-[#E4A422] focus:shadow-[0_0_10px_rgba(228,164,34,0.5)] hover:shadow-[0_0_8px_rgba(228,164,34,0.3)] outline-none transition-premium font-medium";
 
   return (
     <div className={`fixed inset-0 z-[100] flex items-center justify-center p-4 transition-all duration-700 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
@@ -85,12 +85,12 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
         {/* Exit Button with Tooltip */}
         <button 
           onClick={onClose}
-          className="absolute top-6 right-6 bg-black text-[#FFD700] hover:opacity-80 transition-all z-30 p-2 border border-[#FFD700] rounded-full shadow-lg group"
+          className="absolute top-6 right-6 bg-black text-[#E4A422] hover:opacity-80 transition-all z-30 p-2 border border-[#E4A422] rounded-full shadow-lg group"
           aria-label="Close modal"
           title="Close"
         >
           <CloseIcon className="w-6 h-6" />
-          <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-black text-[#FFD700] text-[10px] px-2 py-1 rounded border border-[#FFD700] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+          <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-black text-[#E4A422] text-[10px] px-2 py-1 rounded border border-[#E4A422] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
             Close
           </span>
         </button>
@@ -107,7 +107,7 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
             </p>
             <button 
               onClick={onClose}
-              className="mt-8 px-12 py-4 bg-[#FFD700] text-black font-black uppercase tracking-widest hover:shadow-[0_0_20px_rgba(255,215,0,0.8)] transition-premium rounded-lg"
+              className="mt-8 px-12 py-4 bg-[#E4A422] text-black font-black uppercase tracking-widest hover:shadow-[0_0_20px_rgba(228,164,34,0.8)] transition-premium rounded-lg"
             >
               Return to Site
             </button>
@@ -124,8 +124,8 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
               <form onSubmit={handleSubmit} className="space-y-10">
                 {/* Auto-filled field */}
                 <div className="bg-black/80 border-2 border-gold/50 p-6 rounded-xl shadow-gold-nav">
-                  <p className="text-[11px] text-[#FFD700] uppercase tracking-[0.3em] font-bold mb-2">Interested In</p>
-                  <p className="text-white font-serif text-2xl font-bold">{suiteName} <span className="text-[#FFD700] mx-2">—</span> <span className="text-[#FFD700] text-glow-gold-medium">{suitePrice}</span></p>
+                  <p className="text-[11px] text-[#E4A422] uppercase tracking-[0.3em] font-bold mb-2">Interested In</p>
+                  <p className="text-white font-serif text-2xl font-bold">{suiteName} <span className="text-[#E4A422] mx-2">—</span> <span className="text-[#E4A422] text-glow-gold-medium">{suitePrice}</span></p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -144,7 +144,7 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
                       type="email" 
                       required 
                       className={inputClass}
-                      placeholder="jane@example.com"
+                      placeholder="Alex@SVSuites.com"
                     />
                   </div>
                 </div>
@@ -186,7 +186,7 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
                         <option value="" disabled className="bg-luxury-rich text-[#B0B0B0]">Select Profession</option>
                         {professions.map(p => <option key={p} value={p} className="bg-luxury-rich">{p}</option>)}
                       </select>
-                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-[#FFD700]">
+                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-[#E4A422]">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
                       </div>
                     </div>
@@ -201,7 +201,7 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
                         <option value="" disabled selected className="bg-luxury-rich text-[#B0B0B0]">Select Source</option>
                         {referralSources.map(s => <option key={s} value={s} className="bg-luxury-rich">{s}</option>)}
                       </select>
-                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-[#FFD700]">
+                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-[#E4A422]">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
                       </div>
                     </div>
@@ -236,7 +236,7 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
                     type="checkbox" 
                     required 
                     id="terms-modal"
-                    className="mt-1.5 w-5 h-5 accent-[#FFD700] cursor-pointer" 
+                    className="mt-1.5 w-5 h-5 accent-[#E4A422] cursor-pointer" 
                   />
                   <label htmlFor="terms-modal" className="text-[13px] text-[#E0E0E0] leading-relaxed cursor-pointer hover:text-[#F5F5F5] transition-colors">
                     I agree to the terms of service and privacy policy. I consent to receive communication from Salon Village via phone or email.
@@ -246,7 +246,7 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
                 <button 
                   type="submit" 
                   disabled={isLoading}
-                  className="w-full py-6 bg-[#FFD700] text-black font-black uppercase tracking-[0.3em] text-sm hover:shadow-[0_0_25px_rgba(255,215,0,0.7)] transition-premium shadow-lg active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-3 rounded-[40px]"
+                  className="w-full py-6 bg-[#E4A422] text-black font-black uppercase tracking-[0.3em] text-sm hover:shadow-[0_0_25px_rgba(228,164,34,0.7)] transition-premium shadow-lg active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-3 rounded-[40px]"
                 >
                   {isLoading ? (
                     <>
