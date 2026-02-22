@@ -47,12 +47,12 @@ const HomePage: React.FC = () => {
         
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 w-full">
           <div className="max-w-3xl">
-            <h1 className="text-6xl md:text-8xl font-serif text-white mb-8 leading-[1.1] drop-shadow-[0_4px_12px_rgba(212,175,55,0.4)]">
+            <h1 className="text-6xl md:text-8xl font-serif text-white mb-8 leading-[1.1] drop-shadow-[0_4px_12px_rgba(228,164,34,0.4)]">
               Your Dream <br />
               <span className="bg-clip-text text-transparent gold-gradient-bg font-bold italic">Salon Suite</span> 
               <br />Awaits
             </h1>
-            <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-lg font-light tracking-wide text-glow-gold-soft">
+            <p className="text-xl text-white/90 mb-12 leading-relaxed max-w-lg font-light tracking-wide text-glow-gold-soft font-serif italic">
               Join Houston's premier community of beauty professionals in our <strong className="text-gold">luxury salon suites</strong>. Designed for your success.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
@@ -131,7 +131,7 @@ const HomePage: React.FC = () => {
                 key={idx} 
                 className="p-10 bg-luxury-card border border-gold/40 hover:border-gold-light transition-premium group rounded-[10px] shadow-gold-card hover:-translate-y-[3px] hover:shadow-gold-glow-btn"
               >
-                <div className="text-gold mb-6 group-hover:scale-110 transition-premium inline-block drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">
+                <div className="text-gold mb-6 group-hover:scale-110 transition-premium inline-block drop-shadow-[0_0_8px_rgba(228,164,34,0.4)]">
                   {amenity.icon}
                 </div>
                 <h3 className="text-[1.625rem] font-serif text-white mb-4 group-hover:text-gold transition-colors border-b border-transparent group-hover:border-gold/30 pb-2 block w-fit mx-auto text-center">
