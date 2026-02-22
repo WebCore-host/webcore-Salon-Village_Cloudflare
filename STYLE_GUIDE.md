@@ -12,7 +12,7 @@ To maintain a consistent, premium look and feel for the Salon Village Houston br
 ## 2. Technical Specifications
 - **Format:** SVG (Scalable Vector Graphics).
 - **ViewBox:** `0 0 24 24`.
-- **Colors:** Primary use is Gold (`#D4AF37`) or Luxury White (`#F5F5F5`).
+- **Colors:** Primary use is Black (`#000000`), Yellow (`#E4A422`), or Gold (`#B47616`).
 - **Responsive:** Icons should be wrapped in React components that accept a `className` prop for easy scaling and color manipulation via Tailwind CSS.
 
 ## 3. Spacing & Grid
