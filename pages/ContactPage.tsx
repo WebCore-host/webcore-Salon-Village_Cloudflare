@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PinIcon, PhoneIcon, EmailIcon, ClockIcon, CameraIcon } from '../components/Icons';
+import { PinIcon, PhoneIcon, EmailIcon, ClockIcon, CameraIcon, FacebookIcon } from '../components/Icons';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -84,13 +84,24 @@ const ContactPage: React.FC = () => {
               </div>
 
               <div className="pt-6 border-t border-gold/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <div className="flex items-center space-x-4">
-                  <div className="text-gold">
-                    <CameraIcon className="w-7 h-7" />
+                <div className="flex items-center space-x-8">
+                  <div className="flex items-center space-x-4">
+                    <div className="text-gold">
+                      <CameraIcon className="w-7 h-7" />
+                    </div>
+                    <div>
+                      <h4 className="text-gold font-bold text-[10px] uppercase tracking-widest opacity-60">Instagram</h4>
+                      <a href="https://www.instagram.com/salonvillagehtx/" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white font-bold transition-colors">@salonvillagehtx</a>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-gold font-bold text-[10px] uppercase tracking-widest opacity-60">Follow us</h4>
-                    <a href="https://www.instagram.com/salonvillagehtx/" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white font-bold transition-colors">@salonvillagehtx</a>
+                  <div className="flex items-center space-x-4">
+                    <div className="text-gold">
+                      <FacebookIcon className="w-7 h-7" />
+                    </div>
+                    <div>
+                      <h4 className="text-gold font-bold text-[10px] uppercase tracking-widest opacity-60">Facebook</h4>
+                      <a href="https://www.facebook.com/share/1Aw7Qee6ya/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white font-bold transition-colors">Salon Village</a>
+                    </div>
                   </div>
                 </div>
               </div>
