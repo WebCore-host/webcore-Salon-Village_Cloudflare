@@ -28,7 +28,7 @@ const ContactPage: React.FC = () => {
       <section className="py-24 text-center noise-gold relative overflow-hidden">
         <div className="relative z-10">
           <h1 className="text-5xl md:text-7xl font-serif text-gold mb-4 font-bold drop-shadow-sm">Get in Touch</h1>
-          <p className="text-xl text-white/50 font-light max-w-2xl mx-auto px-4 leading-relaxed">We'd love to hear from you and help you start your journey in a space you'll love.</p>
+          <p className="text-xl text-white/50 font-light max-w-2xl mx-auto px-4 leading-relaxed font-serif italic">We'd love to hear from you and help you start your journey in a space you'll love.</p>
           <div className="max-w-xs h-[2px] bg-gold mx-auto mt-8 opacity-50"></div>
         </div>
       </section>
