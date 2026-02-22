@@ -68,7 +68,7 @@ const ContactPage: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-gold font-bold mb-1 uppercase text-[10px] tracking-widest opacity-60">Email</h4>
-                  <a href="mailto:svmanager1801@gmail.com" className="text-gold font-bold hover:text-white break-all transition-colors underline decoration-gold/30">svmanager1801@gmail.com</a>
+                  <a href="mailto:Alex@SVSuites.com" className="text-gold font-bold hover:text-white break-all transition-colors underline decoration-gold/30">Alex@SVSuites.com</a>
                 </div>
               </div>
 
