@@ -30,7 +30,7 @@ const PricingPage: React.FC = () => {
             </p>
           </div>
 
-          <p className="text-xl text-white/50 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-xl text-white/50 mb-12 max-w-2xl mx-auto font-light leading-relaxed font-serif italic">
             Transparent, all-inclusive pricing tiers designed to give your business the <span className="text-gold font-bold">premium home</span> it deserves.
           </p>
           <div className="w-24 h-[2px] bg-gold/50 mx-auto"></div>
@@ -51,7 +51,7 @@ const PricingPage: React.FC = () => {
                 }`}
               >
                 {suite.isPopular && (
-                  <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-black text-[#FFD700] px-8 py-2 font-black uppercase text-[12px] tracking-[0.4em] rounded-[6px] shadow-gold-sign-strong z-20 border border-gold-bright text-glow-gold-strong">
+                  <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-black text-[#E4A422] px-8 py-2 font-black uppercase text-[12px] tracking-[0.4em] rounded-[6px] shadow-gold-sign-strong z-20 border border-gold-bright text-glow-gold-strong">
                     Signature Choice
                   </div>
                 )}
@@ -69,7 +69,7 @@ const PricingPage: React.FC = () => {
                 <div className="space-y-3 mb-12 flex-grow">
                   {suite.features.map((feature, fIdx) => (
                     <div key={fIdx} className="flex items-center p-3 bg-luxury-amenity border border-gold/10 rounded-lg group-hover:border-gold/30 transition-colors">
-                      <span className="text-[#FFD700] mr-4 text-glow-gold-soft">
+                      <span className="text-[#E4A422] mr-4 text-glow-gold-soft">
                         <CheckIcon className="w-4 h-4" />
                       </span>
                       <span className="text-white font-bold text-[1rem] leading-relaxed text-glow-gold-medium">{feature}</span>
@@ -104,7 +104,7 @@ const PricingPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {INCLUDED_FEATURES.map((feature, idx) => (
               <div key={idx} className="flex items-center space-x-6 p-6 feature-gradient border border-gold rounded-xl group hover:shadow-gold-card transition-premium">
-                <div className="flex-shrink-0 text-[#FFD700] text-glow-gold-strong">
+                <div className="flex-shrink-0 text-[#E4A422] text-glow-gold-strong">
                   <CheckIcon className="w-6 h-6" />
                 </div>
                 <span className="text-white font-bold tracking-wide text-glow-gold-soft">{feature}</span>
