@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
               <ul className="space-y-6 text-white/50">
                 <li className="flex items-center group">
                   <span className="text-gold mr-4 bg-gold/5 p-1 rounded-full shadow-gold-nav group-hover:bg-gold/20 transition-colors"><EmailIcon className="w-5 h-5" /></span>
-                  <a href="mailto:svmanager1801@gmail.com" className="hover:text-gold transition-premium font-light break-all group-hover:text-white/80">svmanager1801@gmail.com</a>
+                  <a href="mailto:Alex@SVSuites.com" className="hover:text-gold transition-premium font-light break-all group-hover:text-white/80">Alex@SVSuites.com</a>
                 </li>
                 <li className="flex items-center group">
                   <span className="text-gold mr-4 bg-gold/5 p-1 rounded-full shadow-gold-nav group-hover:bg-gold/20 transition-colors"><ClockIcon className="w-5 h-5" /></span>
