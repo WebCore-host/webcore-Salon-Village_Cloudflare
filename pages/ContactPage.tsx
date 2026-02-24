@@ -4,14 +4,20 @@ import { PinIcon, PhoneIcon, EmailIcon, ClockIcon, CameraIcon, FacebookIcon } fr
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    from_name: '',
+    from_email: '',
     phone: '',
     profession: '',
-    canText: 'yes',
-    message: '',
-    preferredTime: ''
+    can_text: 'Yes, please',
+    message: ''
   });
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const professions = [
     'Hair Stylist', 'Barber', 'Nail Technician', 'Esthetician', 
@@ -20,7 +26,20 @@ const ContactPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for your interest! We will contact you shortly.');
+    setIsLoading(true);
+
+    emailjs.send(
+      'service_28682ga',
+      'template_yn8xo78',
+      formData,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    ).then(() => {
+      setIsLoading(false);
+      setSuccess(true);
+    }).catch(() => {
+      setIsLoading(false);
+      alert('Something went wrong. Please try again.');
+    });
   };
 
   return (
@@ -116,7 +135,10 @@ const ContactPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="relative">
                   <input 
-                    type="text" 
+                    type="text"
+                    name="from_name"
+                    value={formData.from_name}
+                    onChange={handleChange}
                     required 
                     placeholder="Your Name*"
                     className="w-full bg-transparent border-b border-gold/40 py-3 text-gold focus:border-gold-light outline-none transition-premium font-light placeholder:text-gold/30"
@@ -124,7 +146,10 @@ const ContactPage: React.FC = () => {
                 </div>
                 <div className="relative">
                   <input 
-                    type="email" 
+                    type="email"
+                    name="from_email"
+                    value={formData.from_email}
+                    onChange={handleChange}
                     required 
                     placeholder="Email Address*"
                     className="w-full bg-transparent border-b border-gold/40 py-3 text-gold focus:border-gold-light outline-none transition-premium font-light placeholder:text-gold/30"
@@ -135,7 +160,10 @@ const ContactPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="relative">
                   <input 
-                    type="tel" 
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     required 
                     placeholder="Phone Number*"
                     className="w-full bg-transparent border-b border-gold/40 py-3 text-gold focus:border-gold-light outline-none transition-premium font-light placeholder:text-gold/30"
@@ -143,9 +171,11 @@ const ContactPage: React.FC = () => {
                 </div>
                 <div className="relative">
                   <select 
+                    name="profession"
+                    value={formData.profession}
+                    onChange={handleChange}
                     required 
                     className="w-full bg-luxury-card border-b border-gold/40 py-3 text-gold focus:border-gold-light outline-none transition-premium appearance-none cursor-pointer font-light"
-                    defaultValue=""
                   >
                     <option value="" disabled className="text-gold/50">Select Your Profession*</option>
                     {professions.map(p => <option key={p} value={p} className="bg-luxury-card">{p}</option>)}
@@ -160,11 +190,11 @@ const ContactPage: React.FC = () => {
                 <p className="text-gold/60 text-[10px] font-bold uppercase tracking-widest">Can we text you?*</p>
                 <div className="flex space-x-8">
                   <label className="flex items-center space-x-3 cursor-pointer group">
-                    <input type="radio" name="text" value="yes" defaultChecked className="w-4 h-4 accent-gold" />
+                    <input type="radio" name="can_text" value="Yes, please" onChange={handleChange} defaultChecked className="w-4 h-4 accent-gold" />
                     <span className="text-white/80 font-medium group-hover:text-gold transition-colors">Yes, please</span>
                   </label>
                   <label className="flex items-center space-x-3 cursor-pointer group">
-                    <input type="radio" name="text" value="no" className="w-4 h-4 accent-gold" />
+                    <input type="radio" name="can_text" value="Call only" onChange={handleChange} className="w-4 h-4 accent-gold" />
                     <span className="text-white/80 font-medium group-hover:text-gold transition-colors">Call only</span>
                   </label>
                 </div>
@@ -172,6 +202,9 @@ const ContactPage: React.FC = () => {
 
               <div className="relative">
                 <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows={4} 
                   placeholder="Tell us about your business needs..."
                   className="w-full bg-transparent border-b border-gold/40 py-3 text-gold focus:border-gold-light outline-none transition-premium resize-none font-light placeholder:text-gold/30"
@@ -179,10 +212,11 @@ const ContactPage: React.FC = () => {
               </div>
 
               <button 
-                type="submit" 
+                type="submit"
+                disabled={isLoading}
                 className="w-full py-5 gold-gradient-bg text-black font-bold uppercase tracking-[0.2em] text-xs hover:shadow-gold-glow-btn transition-premium shadow-lg active:scale-[0.98] rounded-[30px]"
               >
-                Send Message
+                {isLoading ? 'Sending...' : success ? 'Message Sent ✓' : 'Send Message'}
               </button>
               
               <p className="text-gold/40 text-[9px] text-center uppercase tracking-widest mt-4 italic">
