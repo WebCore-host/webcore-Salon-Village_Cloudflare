@@ -79,7 +79,7 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
       from_email: fromEmail,
       phone: phone,
       business_name: businessName,
-      service_interest: serviceOfInterest,
+      service_interest: serviceOfInterest === 'Other' ? `Other - ${otherService}` : serviceOfInterest,
       other_service: serviceOfInterest === 'Other' ? otherService : 'N/A',
       referral_source: referralSource,
       suite_name: suiteName,
