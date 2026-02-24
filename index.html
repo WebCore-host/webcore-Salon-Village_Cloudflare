@@ -20,12 +20,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
       :root {
-        --gold: #D4AF37;
-        --gold-bright: #FFD700;
-        --gold-dark: #B8860B;
+        --gold: #E4A422;
+        --gold-bright: #E4A422;
+        --gold-dark: #B47616;
         --deep-black: #000000;
         --rich-black: #0a0a0a;
         --card-black: #111111;
@@ -33,7 +33,7 @@
       }
 
       body {
-        font-family: 'Lato', sans-serif;
+        font-family: 'Raleway', sans-serif;
         background-color: var(--deep-black);
         color: #F5F5F5;
         scroll-behavior: smooth;
@@ -43,7 +43,7 @@
       }
 
       .bg-geometric-gold {
-        background-image: linear-gradient(45deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%, transparent 50%, rgba(212, 175, 55, 0.05) 50%, rgba(212, 175, 55, 0.05) 75%, transparent 75%, transparent);
+        background-image: linear-gradient(45deg, rgba(228, 164, 34, 0.05) 25%, transparent 25%, transparent 50%, rgba(228, 164, 34, 0.05) 50%, rgba(228, 164, 34, 0.05) 75%, transparent 75%, transparent);
         background-size: 5px 5px;
       }
 
@@ -58,25 +58,25 @@
         filter: sepia(100%) saturate(300%) hue-rotate(5deg);
       }
 
-      h1, h2, h3, h4, .font-serif {
-        font-family: 'Playfair Display', serif;
+      h1, h2, h3, h4, h5, h6, .font-serif {
+        font-family: 'Cormorant Garamond', serif;
         letter-spacing: 0.7px;
       }
       
       .font-nav {
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Raleway', sans-serif;
       }
       
       .text-glow-gold-strong {
-        text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        text-shadow: 0 0 15px rgba(228, 164, 34, 0.8);
       }
 
       .text-glow-gold-medium {
-        text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+        text-shadow: 0 0 8px rgba(228, 164, 34, 0.5);
       }
 
       .text-glow-gold-soft {
-        text-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
+        text-shadow: 0 0 5px rgba(228, 164, 34, 0.4);
       }
       
       .gold-gradient-bg {
@@ -105,12 +105,12 @@
 
       @keyframes banner-glow {
         0%, 100% { 
-          box-shadow: 0 0 15px rgba(212, 175, 55, 0.4), inset 0 0 5px rgba(212, 175, 55, 0.2);
-          border-color: rgba(212, 175, 55, 0.6);
+          box-shadow: 0 0 15px rgba(228, 164, 34, 0.4), inset 0 0 5px rgba(228, 164, 34, 0.2);
+          border-color: rgba(228, 164, 34, 0.6);
         }
         50% { 
-          box-shadow: 0 0 30px rgba(255, 215, 0, 0.7), inset 0 0 10px rgba(255, 215, 0, 0.3);
-          border-color: rgba(255, 215, 0, 1);
+          box-shadow: 0 0 30px rgba(228, 164, 34, 0.7), inset 0 0 10px rgba(228, 164, 34, 0.3);
+          border-color: rgba(228, 164, 34, 1);
         }
       }
       .animate-banner-glow {
@@ -143,9 +143,9 @@
           extend: {
             colors: {
               gold: {
-                DEFAULT: '#D4AF37',
-                bright: '#FFD700',
-                dark: '#B8860B',
+                DEFAULT: '#E4A422',
+                bright: '#E4A422',
+                dark: '#B47616',
               },
               luxury: {
                 black: '#000000',
@@ -155,10 +155,10 @@
               }
             },
             boxShadow: {
-              'gold-nav': '0 2px 10px rgba(212, 175, 55, 0.2)',
-              'gold-card': '0 5px 15px rgba(212, 175, 55, 0.15)',
-              'gold-glow-btn': '0 0 12px rgba(212, 175, 55, 0.4)',
-              'gold-sign-strong': '0 0 20px rgba(255, 215, 0, 0.6)',
+              'gold-nav': '0 2px 10px rgba(228, 164, 34, 0.2)',
+              'gold-card': '0 5px 15px rgba(228, 164, 34, 0.15)',
+              'gold-glow-btn': '0 0 12px rgba(228, 164, 34, 0.4)',
+              'gold-sign-strong': '0 0 20px rgba(228, 164, 34, 0.6)',
             }
           }
         }
@@ -174,7 +174,6 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
   <body>
     <div id="root"></div>
