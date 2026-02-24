@@ -1,3 +1,4 @@
+import emailjs from '@emailjs/browser';
 import React, { useState, useEffect, useRef } from 'react';
 import { CloseIcon, SparkleIcon, CheckIcon } from './Icons';
 
@@ -14,6 +15,11 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
   const [phone, setPhone] = useState('');
   const [serviceOfInterest, setServiceOfInterest] = useState('');
   const [otherService, setOtherService] = useState('');
+  const [fromName, setFromName] = useState('');
+  const [fromEmail, setFromEmail] = useState('');
+  const [businessName, setBusinessName] = useState('');
+  const [referralSource, setReferralSource] = useState('');
+  const [description, setDescription] = useState('');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const professions = [
@@ -38,6 +44,11 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
         setPhone('');
         setServiceOfInterest('');
         setOtherService('');
+        setFromName('');
+        setFromEmail('');
+        setBusinessName('');
+        setReferralSource('');
+        setDescription('');
       }, 700);
       return () => clearTimeout(timer);
     }
@@ -62,10 +73,31 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setTimeout(() => {
+
+    const templateParams = {
+      from_name: fromName,
+      from_email: fromEmail,
+      phone: phone,
+      business_name: businessName,
+      service_interest: serviceOfInterest === 'Other' ? otherService : serviceOfInterest,
+      referral_source: referralSource,
+      suite_name: suiteName,
+      suite_price: suitePrice,
+      description: description
+    };
+
+    emailjs.send(
+      'service_28682ga',
+      'template_wdnorhx',
+      templateParams,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    ).then(() => {
       setIsLoading(false);
       setIsSubmitted(true);
-    }, 1200);
+    }).catch(() => {
+      setIsLoading(false);
+      alert('Something went wrong. Please try again.');
+    });
   };
 
   const labelClass = "text-[12px] text-[#E4A422] uppercase font-bold tracking-widest ml-1 mb-2 block";
@@ -133,7 +165,9 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
                     <label className={labelClass}>Full Name*</label>
                     <input 
                       type="text" 
-                      required 
+                      required
+                      value={fromName}
+                      onChange={(e) => setFromName(e.target.value)}
                       className={inputClass}
                       placeholder="Jane Doe"
                     />
@@ -142,7 +176,9 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
                     <label className={labelClass}>Email Address*</label>
                     <input 
                       type="email" 
-                      required 
+                      required
+                      value={fromEmail}
+                      onChange={(e) => setFromEmail(e.target.value)}
                       className={inputClass}
                       placeholder="Alex@SVSuites.com"
                     />
@@ -166,7 +202,9 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
                     <label className={labelClass}>Business Name*</label>
                     <input 
                       type="text" 
-                      required 
+                      required
+                      value={businessName}
+                      onChange={(e) => setBusinessName(e.target.value)}
                       className={inputClass}
                       placeholder="Styles by Jane"
                     />
@@ -195,10 +233,12 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
                     <label className={labelClass}>Referral Source*</label>
                     <div className="relative">
                       <select 
-                        required 
+                        required
+                        value={referralSource}
+                        onChange={(e) => setReferralSource(e.target.value)}
                         className={inputClass}
                       >
-                        <option value="" disabled selected className="bg-luxury-rich text-[#B0B0B0]">Select Source</option>
+                        <option value="" disabled className="bg-luxury-rich text-[#B0B0B0]">Select Source</option>
                         {referralSources.map(s => <option key={s} value={s} className="bg-luxury-rich">{s}</option>)}
                       </select>
                       <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-[#E4A422]">
@@ -226,6 +266,8 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
                   <label className={labelClass}>Brief Description (Optional)</label>
                   <textarea 
                     rows={4}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                     className={inputClass + " resize-none"}
                     placeholder="Tell us about your space requirements..."
                   ></textarea>
