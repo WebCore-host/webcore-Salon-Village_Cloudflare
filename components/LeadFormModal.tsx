@@ -79,11 +79,12 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose, suiteNam
       from_email: fromEmail,
       phone: phone,
       business_name: businessName,
-      service_interest: serviceOfInterest === 'Other' ? otherService : serviceOfInterest,
+      service_interest: serviceOfInterest,
+      other_service: serviceOfInterest === 'Other' ? otherService : 'N/A',
       referral_source: referralSource,
       suite_name: suiteName,
       suite_price: suitePrice,
-      description: description
+      description: description || 'No description provided'
     };
 
     emailjs.send(
