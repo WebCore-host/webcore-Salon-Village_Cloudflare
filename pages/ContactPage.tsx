@@ -1,3 +1,4 @@
+import emailjs from '@emailjs/browser';
 import React, { useState } from 'react';
 import { PinIcon, PhoneIcon, EmailIcon, ClockIcon, CameraIcon, FacebookIcon } from '../components/Icons';
 
