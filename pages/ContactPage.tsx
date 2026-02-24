@@ -1,6 +1,7 @@
 import emailjs from '@emailjs/browser';
-import React, { useState } from 'react';
-import { PinIcon, PhoneIcon, EmailIcon, ClockIcon, CameraIcon, FacebookIcon } from '../components/Icons';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { PinIcon, PhoneIcon, EmailIcon, ClockIcon, CameraIcon, FacebookIcon, CloseIcon } from '../components/Icons';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,16 @@ const ContactPage: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+
+  useEffect(() => {
+    if (showToast) {
+      const timer = setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showToast]);
 
   const formatPhoneNumber = (value: string) => {
     if (!value) return value;
@@ -52,6 +63,15 @@ const ContactPage: React.FC = () => {
     ).then(() => {
       setIsLoading(false);
       setSuccess(true);
+      setShowToast(true);
+      setFormData({
+        from_name: '',
+        from_email: '',
+        phone: '',
+        profession: '',
+        can_text: 'Yes, please',
+        message: ''
+      });
     }).catch(() => {
       setIsLoading(false);
       alert('Something went wrong. Please try again.');
@@ -263,6 +283,51 @@ const ContactPage: React.FC = () => {
           ></iframe>
         </div>
       </section>
+
+      {/* Success Toast */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            className="fixed bottom-8 right-8 z-[100] max-w-md w-full"
+          >
+            <div className="bg-luxury-rich border-2 border-gold p-6 rounded-2xl shadow-gold-sign-strong noise-gold relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <button 
+                onClick={() => setShowToast(false)}
+                className="absolute top-4 right-4 text-gold/40 hover:text-gold transition-colors p-1"
+              >
+                <CloseIcon className="w-5 h-5" />
+              </button>
+
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center flex-shrink-0 border border-gold shadow-gold-nav">
+                  <svg className="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div className="pt-1">
+                  <h3 className="text-gold font-serif text-xl font-bold mb-1">Message Received</h3>
+                  <p className="text-white/70 text-sm font-light leading-relaxed">
+                    Thanks for your message! Our team will get back to you soon to discuss your journey with Salon Village.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Progress bar */}
+              <motion.div 
+                initial={{ scaleX: 1 }}
+                animate={{ scaleX: 0 }}
+                transition={{ duration: 5, ease: "linear" }}
+                className="absolute bottom-0 left-0 h-1 bg-gold w-full origin-left"
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
