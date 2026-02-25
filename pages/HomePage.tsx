@@ -137,7 +137,7 @@ const HomePage: React.FC = () => {
                 <h3 className="text-[1.625rem] font-serif text-white mb-4 group-hover:text-gold transition-colors border-b border-transparent group-hover:border-gold/30 pb-2 block w-fit mx-auto text-center">
                   {amenity.title}
                 </h3>
-                <p className="text-white/50 text-base font-light leading-relaxed">
+                <p className="text-white/80 text-[1.2rem] font-light leading-relaxed">
                   {amenity.description}
                 </p>
               </div>
