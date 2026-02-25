@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import PricingPage from './pages/PricingPage';
+import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
 
 const ScrollToTop = () => {
@@ -25,6 +26,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/faq" element={<FAQPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>
